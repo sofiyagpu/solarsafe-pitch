@@ -60,13 +60,7 @@ p,li{font-size:27px;line-height:1.45;color:#dbe7f5}
 .member{display:flex;gap:28px;align-items:center;padding:34px 30px}
 .face{width:170px;height:170px;border-radius:50%;object-fit:cover;transform:scale(1);flex:none;border:5px solid var(--lime);clip-path:circle(46%)}
 .member:nth-child(odd) .face{border-color:var(--pink)}
-/* pixel wipe */
-#wipe{position:fixed;inset:0;display:grid;grid-template-columns:repeat(16,1fr);grid-template-rows:repeat(9,1fr);pointer-events:none;z-index:10}
-#wipe i{background:var(--c);transform:scale(0)}
-#wipe.go i{animation:px .9s steps(5) both;animation-delay:calc(var(--k)*12ms)}
-@keyframes px{0%{transform:scale(0) rotate(-45deg)}25%,75%{transform:scale(1.04)}100%{transform:scale(0) rotate(45deg)}}
-.slide.on{animation:zin .8s cubic-bezier(.2,.8,.2,1)}
-@keyframes zin{from{transform:scale(1.08);filter:blur(8px)}}
+
 .ava{width:92px;height:92px;display:grid;place-items:center;font-family:var(--px);font-size:30px;color:var(--ink);margin-bottom:22px}
 .member h3{margin-bottom:8px;font-size:25px}.member p{font-size:20px;line-height:1.35}
 
@@ -282,7 +276,7 @@ td.blank{color:rgba(255,255,255,.35);font-family:var(--px);font-size:16px}
 </section>
 
 </div>
-<div id="wipe"></div><div id="bar"></div><div id="num"></div><div id="hint">← → ПРОБЕЛ · F — ПОЛНЫЙ ЭКРАН</div>
+<div id="bar"></div><div id="num"></div><div id="hint">← → ПРОБЕЛ · F — ПОЛНЫЙ ЭКРАН</div>
 
 <script>
 const stage=document.getElementById('stage'), slides=[...document.querySelectorAll('.slide')];
@@ -293,16 +287,7 @@ for(let k=0;k<70;k++){const s=document.createElement('div');s.className='star';s
 function fit(){const k=Math.min(innerWidth/1600,innerHeight/900);stage.style.transform=`scale(${k}) translate(-800px,-450px)`}
 addEventListener('resize',fit);fit();
 
-const wipe=document.getElementById('wipe'),cols=['#FF006E','#9EFF00','#C0115D','#FFD60A','#003465','#32BCEF'];
-for(let r=0;r<9;r++)for(let c=0;c<16;c++){const e=document.createElement('i');e.dataset.c=c;e.dataset.r=r;e.style.setProperty('--c',cols[Math.random()*cols.length|0]);wipe.appendChild(e)}
-let busy=false;
-function go(n){
-  n=Math.max(0,Math.min(slides.length-1,n));
-  if(n===i||busy)return;busy=true;const fwd=n>i;
-  wipe.querySelectorAll('i').forEach(e=>e.style.setProperty('--k',(fwd?+e.dataset.c:15-e.dataset.c)+ +e.dataset.r));
-  wipe.classList.remove('go');void wipe.offsetWidth;wipe.classList.add('go');
-  setTimeout(()=>show(n),560);setTimeout(()=>{busy=false},1100);
-}
+function go(n){show(n)}
 let goalTimer;
 function show(n){
   i=Math.max(0,Math.min(slides.length-1,n));
