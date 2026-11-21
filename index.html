@@ -104,6 +104,25 @@ td.blank{color:rgba(255,255,255,.35);font-family:var(--px);font-size:16px}
 .ray{stroke-dasharray:14 10;animation:flow 1s linear infinite}
 @keyframes flow{to{stroke-dashoffset:-24}}
 
+/* robot */
+.shot{position:relative;overflow:hidden;border-radius:6px;background:#000}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.shot img.rot{inset:auto;left:50%;top:50%;width:var(--h);height:var(--w);transform:translate(-50%,-50%) rotate(-90deg)}
+.cap{font-family:var(--px);font-size:12px;color:var(--lime2);line-height:1.6;margin-top:14px}
+.kit{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.kit .card{padding:22px 22px}
+.kit b{font-family:var(--px);font-size:12px;color:var(--ink);background:var(--lime);padding:7px 9px;display:inline-block;margin-bottom:14px}
+.kit .card:nth-child(even) b{background:var(--pink);color:#fff}
+.kit p{font-size:19px;line-height:1.4}
+.rt td,.rt th{padding:12px 16px;font-size:20px}.rt th{font-size:12px}
+.rt td:first-child{font-family:var(--px);font-size:14px;color:var(--yellow)}
+.ty{font-family:var(--px);font-size:11px;padding:6px 8px;background:var(--lime);color:var(--ink);white-space:nowrap}
+.ty.act{background:var(--pink);color:#fff}
+.att{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.att .shot{height:360px}
+.att h3{font-size:22px;margin:16px 0 8px}.att p{font-size:18px;line-height:1.4}
+.code{font-family:ui-monospace,Menlo,monospace;font-size:21px;line-height:1.75;color:var(--lime2);white-space:pre}
+
 /* ui */
 #bar{position:fixed;left:0;bottom:0;height:8px;background:var(--pink);transition:width .4s steps(8);z-index:5}
 #num{position:fixed;right:24px;bottom:22px;font-family:var(--px);font-size:12px;color:rgba(255,255,255,.55);z-index:5}
@@ -273,6 +292,109 @@ td.blank{color:rgba(255,255,255,.35);font-family:var(--px);font-size:16px}
     <h2 class="a" style="--d:3;font-size:50px;max-width:1300px;margin:34px auto 34px">Защитить насекомых у водоёмов можно <span class="lime">без замены панелей</span> — только за счёт <span class="pink">умного угла наклона</span></h2>
     <p class="a pop" style="--d:5;font-family:var(--px);font-size:18px;color:var(--yellow);line-height:2">CLEAN ENERGY · SMARTER REFLECTION · SAFER HABITATS</p>
   </div>
+</section>
+
+<!-- ROBOT DESIGN: 1. ROBOT -->
+<section class="slide">
+  <div class="tag a">ДИЗАЙН РОБОТА · FLL BIOGLOW</div>
+  <h2 class="a" style="--d:1">Одна база + <span class="lime">7 сменных насадок</span></h2>
+  <p class="a" style="--d:2;max-width:1300px">Шасси не меняется, насадки ставятся за несколько секунд в зоне запуска — в матче 2,5 минуты мы не теряем время на пересборку. Низкий центр тяжести: робот не качается на поворотах и при ударе о модели.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin-top:34px">
+    <div class="a pop" style="--d:3"><div class="shot" style="height:330px;box-shadow:8px 8px 0 var(--pink)"><img src="photos/robot-top.jpg" alt="Робот сверху"></div><div class="cap">СВЕРХУ: ПЛОЩАДКА ИЗ РАМОК И ДВЕ ШЕСТЕРНИ — ВЫХОДЫ ПРИВОДА</div></div>
+    <div class="a pop" style="--d:4"><div class="shot" style="height:330px;box-shadow:8px 8px 0 var(--lime)"><img src="photos/robot-side.jpg" alt="Робот сбоку"></div><div class="cap">СБОКУ: НИЗКИЙ КОРПУС, БАМПЕР ИЗ ГОЛУБЫХ ПАНЕЛЕЙ</div></div>
+    <div class="a pop" style="--d:5"><div class="shot" style="height:330px;box-shadow:8px 8px 0 var(--pink);--w:440px;--h:330px"><img class="rot" src="photos/robot-bottom.jpg" alt="Робот снизу"></div><div class="cap">СНИЗУ: КОЛЁСА, ШАРОВЫЕ ОПОРЫ, 2 ДАТЧИКА ЦВЕТА</div></div>
+  </div>
+</section>
+
+<!-- ROBOT DESIGN: 2. BASE -->
+<section class="slide">
+  <div class="tag a">КАК УСТРОЕНА БАЗА</div>
+  <h2 class="a" style="--d:1">Каждый узел — <span class="lime">со своей задачей</span></h2>
+  <div class="kit">
+    <div class="card a" style="--d:2"><b>ХАБ</b><p>SPIKE Prime лежит горизонтально в центре, кнопка сверху. Встроенный гироскоп — для точных поворотов</p></div>
+    <div class="card a" style="--d:3"><b>ХОДОВАЯ</b><p>Два мотора с большими колёсами по бокам и две шаровые опоры спереди — разворот на месте</p></div>
+    <div class="card a" style="--d:4"><b>ДАТЧИКИ</b><p>Два датчика цвета спереди у пола: выравнивание по линиям поля, ошибка не накапливается</p></div>
+    <div class="card a" style="--d:5"><b>ПРИВОД</b><p>Две конические шестерни сверху — выходы моторов. Насадка входит в зацепление и сразу работает</p></div>
+    <div class="card a" style="--d:6"><b>ПЛОЩАДКА</b><p>Чёрные рамки с отверстиями под штифты — насадка крепится за секунды</p></div>
+    <div class="card a" style="--d:7"><b>КОРПУС</b><p>Голубые панели по периметру — бампер и защита проводов. Красные углы сзади — упор о борт</p></div>
+    <div class="card a" style="--d:8"><b>ПРОВОДА</b><p>Уложены внутри рамы и не цепляются за модели миссий</p></div>
+    <div class="card a" style="--d:9"><b>КОД</b><p>Надир, приложение LEGO Education SPIKE</p></div>
+  </div>
+</section>
+
+<!-- ROBOT DESIGN: 3. ATTACHMENTS -->
+<section class="slide">
+  <div class="row" style="gap:56px;height:100%;align-items:center">
+    <div class="a pop" style="--d:2;flex:none;width:400px"><div class="shot" style="height:640px;box-shadow:12px 12px 0 var(--lime)"><img src="photos/att-all.jpg" alt="Все насадки робота"></div></div>
+    <div style="flex:1">
+      <div class="tag a">НАСАДКИ</div>
+      <h2 class="a" style="--d:1;font-size:52px;margin-bottom:20px"><span class="lime">5 пассивных</span> + <span class="pink">2 активных</span></h2>
+      <table class="rt a" style="--d:3">
+        <tr><th>№</th><th>НАСАДКА</th><th>ТИП</th><th>ЧТО ДЕЛАЕТ</th></tr>
+        <tr><td>1</td><td>Рамка с крюками</td><td><span class="ty">ПАСС</span></td><td>Цепляет и тянет модель</td></tr>
+        <tr><td>2</td><td>Вилы</td><td><span class="ty">ПАСС</span></td><td>Подцепляет и толкает объекты</td></tr>
+        <tr><td>3</td><td>Контейнер-клетка</td><td><span class="ty">ПАСС</span></td><td>Перевозит элементы по полю</td></tr>
+        <tr><td>4</td><td>Лопата</td><td><span class="ty">ПАСС</span></td><td>Собирает и сдвигает объекты</td></tr>
+        <tr><td>5</td><td>Изогнутый толкатель</td><td><span class="ty">ПАСС</span></td><td>Достаёт сбоку, толкает части моделей</td></tr>
+        <tr><td>6</td><td>Поворотный рычаг</td><td><span class="ty act">АКТ</span></td><td>Нажимает и опускает далеко от корпуса</td></tr>
+        <tr><td>7</td><td>Линейный модуль</td><td><span class="ty act">АКТ</span></td><td>Точно выдвигает и возвращает рабочую часть</td></tr>
+      </table>
+      <p class="a" style="--d:5;font-size:20px;margin-top:18px">Пассивные работают от движения робота, активные — от мотора через зубчатую передачу. Каждая хранится в своём пакете с номером.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ROBOT DESIGN: 4. MECHANISMS -->
+<section class="slide">
+  <div class="tag a">МЕХАНИЗМЫ</div>
+  <h2 class="a" style="--d:1">Как работают <span class="pink">ключевые насадки</span></h2>
+  <div class="att">
+    <div class="a pop" style="--d:2"><div class="shot" style="box-shadow:8px 8px 0 var(--lime)"><img src="photos/att-1.jpg" alt="Насадка 1 — рамка с крюками"></div><h3><span class="lime">1</span> · Рамка с крюками</h3><p>Два крюка держат модель с двух сторон — не соскальзывает на поворотах</p></div>
+    <div class="a pop" style="--d:3"><div class="shot" style="box-shadow:8px 8px 0 var(--pink)"><img src="photos/att-6.jpg" alt="Насадка 6 — поворотный рычаг"></div><h3><span class="pink">6</span> · Поворотный рычаг</h3><p>Конические шестерни поворачивают ось на 90°, кривошип двигает длинный рычаг — достаёт без лишнего подъезда</p></div>
+    <div class="a pop" style="--d:4"><div class="shot" style="box-shadow:8px 8px 0 var(--lime)"><img src="photos/att-7.jpg" alt="Насадка 7 — линейный модуль"></div><h3><span class="pink">7</span> · Линейный модуль</h3><p>Шестерня 24z катится по рейке: вращение → прямое движение. Жёлтая балка прижимает, зубцы не перескакивают</p></div>
+    <div class="a pop" style="--d:5"><div class="shot" style="box-shadow:8px 8px 0 var(--pink)"><img src="photos/att-gear.jpg" alt="Крупная насадка с зубчатой передачей"></div><h3>Крупная насадка</h3><p>Зубчатая передача от выходов привода базы — ставится сверху и сразу входит в зацепление</p></div>
+  </div>
+</section>
+
+<!-- ROBOT DESIGN: 5. STRATEGY + CODE -->
+<section class="slide">
+  <div class="tag a">СТРАТЕГИЯ И КОД</div>
+  <h2 class="a" style="--d:1">Надёжное — <span class="lime">в первую очередь</span></h2>
+  <div class="grid2" style="grid-template-columns:1.1fr 1fr;gap:44px">
+    <div>
+      <ul class="parts">
+        <li class="a left" style="--d:2"><b>ШАГ 1</b>Изучили поле, модели и правила, оценили каждую миссию по очкам и сложности</li>
+        <li class="a left" style="--d:3"><b class="p">ШАГ 2</b>Сгруппировали близкие миссии в один запуск с одной насадкой</li>
+        <li class="a left" style="--d:4"><b class="y">ШАГ 3</b>Сначала пассивные насадки, потом активные. Запуск не удался — не повторяем, идём дальше</li>
+      </ul>
+      <div class="card pxbox g a" style="--d:5;margin-top:20px;padding:24px 28px"><p style="font-size:21px">Свои блоки: <b class="lime">«ехать прямо», «поворот по гироскопу», «до чёрной линии», «насадка вверх/вниз»</b>. Сброс гироскопа и мотора насадки в начале запуска, плавный старт и торможение. Копия программ — на USB и в облаке.</p></div>
+    </div>
+    <div class="card pxbox a pop" style="--d:6">
+      <p style="font-family:var(--px);font-size:13px;color:var(--yellow);margin-bottom:18px">ЗАПУСК С НАСАДКОЙ 6</p>
+      <div class="code">1. Сбросить гироскоп и рычаг
+2. Ехать прямо, держа курс
+3. До чёрной линии, выровняться
+4. Поворот к модели по гироскопу
+5. Опустить рычаг, нажать, поднять
+6. Вернуться домой</div>
+    </div>
+  </div>
+</section>
+
+<!-- ROBOT DESIGN: 6. ITERATIONS -->
+<section class="slide">
+  <div class="tag a">ДОРАБОТКИ</div>
+  <h2 class="a" style="--d:1">Тест → <span class="pink">проблема</span> → <span class="lime">улучшение</span></h2>
+  <table class="rt a" style="--d:2">
+    <tr><th>ДАТА</th><th>ЧТО БЫЛО НЕ ТАК</th><th>ЧТО СДЕЛАЛИ</th></tr>
+    <tr><td>19.09</td><td>Робота уводило в сторону</td><td>Удержание курса по гироскопу и плавный старт</td></tr>
+    <tr><td>24.10</td><td>Клетка деформировалась от удара</td><td>Усилили второй рамкой</td></tr>
+    <tr><td>24.10</td><td>Датчик цвета путал линию при разном свете</td><td>Калибровка чёрного и белого перед матчем</td></tr>
+    <tr><td>31.10</td><td>Модель соскальзывала с рамки на повороте</td><td>Добавили второй крюк</td></tr>
+    <tr><td>07.11</td><td>Мотор насадки стартовал с разного положения</td><td>Сброс мотора в начале программы</td></tr>
+    <tr><td>07.11</td><td>Поворотный рычаг не доставал до модели</td><td>Удлинили рычаг, добавили наконечник</td></tr>
+    <tr><td>14.11</td><td>Реечный модуль: шестерня перескакивала зубцы</td><td>Добавили прижимную жёлтую балку</td></tr>
+  </table>
 </section>
 
 </div>
